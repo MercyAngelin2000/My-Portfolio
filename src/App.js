@@ -23,7 +23,7 @@ function App() {
     };
 
     // If the app mounts after the load event already fired (common on fast mobile devices),
-    // hide the loader immediately instead of waiting for another "load" event.
+    // hide the loader immediately instead of waiting for another "load" event...
     if (document.readyState === 'complete') {
       handleLoad();
     } else {
