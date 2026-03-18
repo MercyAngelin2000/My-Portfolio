@@ -5,10 +5,34 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     // ── LOADER ──
-    const handleLoad = () => {
-      setTimeout(() => document.getElementById('loader')?.classList.add('done'), 1600);
+    let loaderTimeout;
+    let fallbackTimeout;
+    let loaderCleared = false;
+
+    const hideLoader = () => {
+      if (loaderCleared) return;
+      loaderCleared = true;
+      clearTimeout(loaderTimeout);
+      clearTimeout(fallbackTimeout);
+      document.getElementById('loader')?.classList.add('done');
     };
-    window.addEventListener('load', handleLoad);
+
+    const handleLoad = () => {
+      clearTimeout(fallbackTimeout);
+      loaderTimeout = window.setTimeout(hideLoader, 1600);
+    };
+
+    // If the app mounts after the load event already fired (common on fast mobile devices),
+    // hide the loader immediately instead of waiting for another "load" event.
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    // Fallback in case the load event never fires (e.g. slow image/network load)
+    // so the loader doesn't stay stuck forever.
+    fallbackTimeout = window.setTimeout(hideLoader, 5000);
 
     // ── SMOOTH SCROLL FUNCTION ──
     window.scrollToSection = function(id) {
@@ -127,6 +151,8 @@ function App() {
     return () => {
       window.removeEventListener('load', handleLoad);
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(loaderTimeout);
+      clearTimeout(fallbackTimeout);
       revealObserver.disconnect();
       skillColObs.disconnect();
       projTableObs.disconnect();
