@@ -198,7 +198,7 @@ function App() {
           <div className="hero-role-line">
             <span className="hero-role-text">React.js &middot; Python &middot; FastAPI &middot; Frappe</span>
             <span className="hero-role-dot"></span>
-            <span className="hero-tenure">June 2022 &ndash; Present</span>
+            <span className="hero-tenure">June 2022 &ndash; February 2026</span>
           </div>
           <p className="hero-desc">
             <strong>3 years of production experience</strong> building dynamic, scalable web applications. Expert in React.js frontend development and Python/FastAPI backends &mdash; delivering polished user experiences and robust APIs for real-world platforms.
