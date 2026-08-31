@@ -219,7 +219,7 @@ function App() {
             <div className="stats-list">
               <div className="stat-item">
                 <div className="stat-big" id="stat1">3<sup>+</sup></div>
-                <div className="stat-info"><div className="stat-name">Years Experience</div><div className="stat-sub">June 2022 → Now</div></div>
+                <div className="stat-info"><div className="stat-name">Years Experience</div><div className="stat-sub">June 2022 → February 2026</div></div>
               </div>
               <div className="stat-item">
                 <div className="stat-big" id="stat2">5<sup>+</sup></div>
@@ -311,7 +311,7 @@ function App() {
               <div className="exp-company">Software Engineer</div>
               <div className="exp-meta">
                 <div className="exp-badge">Full-Time</div>
-                <div className="exp-period">June 2022 – Present · 3+ Years</div>
+                <div className="exp-period">June 2022 – February 2026 · 3+ Years</div>
               </div>
             </div>
             <div className="projects-table" id="projects-table">
